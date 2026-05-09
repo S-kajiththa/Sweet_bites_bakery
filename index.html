@@ -1,0 +1,526 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sweet Bites Bakery</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f6e6df;
+      color:#3d2a20;
+    }
+
+    h1,h2,h3{
+      font-family:'Playfair Display',serif;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:#f6e6df;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+    }
+
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:25px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#3d2a20;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#a56a4d;
+    }
+
+    /* HERO */
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+      padding:70px 8%;
+    }
+
+    .hero-text h1{
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    .hero-text button{
+      background:#a56a4d;
+      color:white;
+      border:none;
+      padding:14px 30px;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    .hero-text button:hover{
+      background:#8f563b;
+    }
+
+    .hero-image img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    /* SPECIAL */
+
+    .special{
+      background:#e5d7c8;
+      padding:80px 8%;
+    }
+
+    .special h2{
+      font-size:45px;
+      margin-bottom:40px;
+      text-align:center;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+      box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+    }
+
+    .card h3{
+      padding:20px 20px 10px;
+    }
+
+    .card p{
+      padding:0 20px 25px;
+      line-height:1.7;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+      padding:80px 8%;
+      background:#dfe8c5;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+    }
+
+    .about h2{
+      font-size:50px;
+      margin-bottom:20px;
+    }
+
+    .about p{
+      line-height:1.9;
+    }
+
+    /* MENU */
+
+    .menu{
+      padding:80px 8%;
+    }
+
+    .menu h2{
+      text-align:center;
+      font-size:45px;
+      margin-bottom:40px;
+    }
+
+    .menu-item{
+      background:white;
+      padding:25px;
+      margin-bottom:20px;
+      border-radius:15px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 5px 15px rgba(0,0,0,0.06);
+    }
+
+    .menu-item button{
+      background:#a56a4d;
+      color:white;
+      border:none;
+      padding:12px 20px;
+      border-radius:30px;
+      cursor:pointer;
+    }
+
+    /* BOOKING */
+
+    .booking{
+      padding:80px 8%;
+      display:flex;
+      justify-content:center;
+    }
+
+    .form-box{
+      background:#f9f1eb;
+      padding:50px;
+      border-radius:20px;
+      width:650px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .form-box h2{
+      text-align:center;
+      margin-bottom:30px;
+      font-size:42px;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    input{
+      padding:15px;
+      border-radius:10px;
+      border:1px solid #ccc;
+      font-size:15px;
+    }
+
+    form button{
+      background:#a56a4d;
+      color:white;
+      border:none;
+      padding:15px;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    /* GALLERY */
+
+    .gallery{
+      padding:80px 8%;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      border-radius:20px;
+      transition:0.3s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.02);
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#ead8cf;
+      text-align:center;
+      padding:50px 20px;
+    }
+
+    footer h3{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      .hero,
+      .about,
+      .cards,
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text h1{
+        font-size:45px;
+      }
+
+      .about h2{
+        font-size:38px;
+      }
+
+      .special h2,
+      .menu h2{
+        font-size:36px;
+      }
+
+      .navbar{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .form-box{
+        width:100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <header class="navbar">
+
+    <div class="logo">Sweet Bites</div>
+
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#special">Specialties</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-text">
+      <h1>Delight in every bite</h1>
+
+      <p>
+        Experience the warmth of artisan baked goods crafted fresh every day with love and premium ingredients.
+      </p>
+
+      <button onclick="showMessage()">Explore Menu</button>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+  </section>
+
+  <!-- SPECIAL -->
+
+  <section class="special" id="special">
+
+    <h2>Our Specialties</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Artisanal Breads</h3>
+
+        <p>
+          Handcrafted breads baked fresh every morning with traditional recipes.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Custom Cakes</h3>
+
+        <p>
+          Elegant celebration cakes for birthdays, weddings and events.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Daily Pastries</h3>
+
+        <p>
+          Fresh croissants, donuts and pastries prepared daily.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+
+    <div>
+      <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1200&auto=format&fit=crop">
+    </div>
+
+    <div>
+
+      <h2>Crafting Moments of Pure Delight</h2>
+
+      <p>
+        At Sweet Bites Bakery, every item is carefully baked using high-quality ingredients and timeless baking techniques.
+        We bring happiness to every table with our handcrafted treats and warm customer experience.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- MENU -->
+
+  <section class="menu" id="menu">
+
+    <h2>Daily Treats</h2>
+
+    <div class="menu-item">
+      <span>Cupcake Making</span>
+      <button>Order Now</button>
+    </div>
+
+    <div class="menu-item">
+      <span>Dessert Course</span>
+      <button>Order Now</button>
+    </div>
+
+    <div class="menu-item">
+      <span>Bread Baking</span>
+      <button>Order Now</button>
+    </div>
+
+  </section>
+
+  <!-- BOOKING -->
+
+  <section class="booking">
+
+    <div class="form-box">
+
+      <h2>Reserve Your Spot</h2>
+
+      <form id="bookingForm">
+
+        <input type="text" placeholder="Full Name" required>
+
+        <input type="email" placeholder="Email Address" required>
+
+        <input type="date" required>
+
+        <input type="time" required>
+
+        <button type="submit">Book Table</button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section class="gallery" id="gallery">
+
+    <img src="https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop">
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h3>Sweet Bites Bakery</h3>
+
+    <p>Freshly baked happiness everyday.</p>
+
+  </footer>
+
+  <script>
+
+    function showMessage(){
+      alert("Welcome to Sweet Bites Bakery!");
+    }
+
+    document.getElementById("bookingForm").addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      alert("Your table has been reserved successfully!");
+
+    });
+
+    console.log("Sweet Bites Bakery Loaded");
+
+  </script>
+
+</body>
+</html>
+```
